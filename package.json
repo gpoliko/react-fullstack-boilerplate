@@ -1,0 +1,19 @@
+{
+  "name": "react-fullstack-boilerplate",
+  "version": "1.0.0",
+  "description": "Full-stack react boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gpoliko/react-fullstack-boilerplate.git"
+  },
+  "author": "Giovanni Poliko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gpoliko/react-fullstack-boilerplate/issues"
+  },
+  "homepage": "https://github.com/gpoliko/react-fullstack-boilerplate#readme"
+}
