@@ -2,9 +2,16 @@
   "name": "react-fullstack-boilerplate",
   "version": "1.0.0",
   "description": "Full-stack react boilerplate",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client": "webpack-dev-server --hot --inline",
+    "dev": "run-p dev:client dev:server",
+    "dev:client": "webpack --watch",
+    "dev:server": "nodemon server",
+    "start": "run-s build server",
+    "build": "webpack",
+    "server": "node server",
+    "test": "jest --watchAll"
   },
   "repository": {
     "type": "git",
