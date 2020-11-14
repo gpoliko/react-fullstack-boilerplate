@@ -2,9 +2,6 @@ exports.up = knex => {
     return knex.schema.createTable('Customers', table => {
       table.increments('id').primary()
       table.string('full_name')
-      table.integer('phone')
-      table.string('address')
-      table.string('city')
       table.string('country')
     })
   }
