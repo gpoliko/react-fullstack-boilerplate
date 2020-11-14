@@ -19,3 +19,5 @@ module.exports = {
   },
   devtool: 'source-map'
 }
+
+console.log(this.entry)

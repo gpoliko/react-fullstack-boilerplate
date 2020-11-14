@@ -4,14 +4,13 @@
   "description": "Full-stack react boilerplate",
   "main": "server/index.js",
   "scripts": {
-    "client": "webpack-dev-server --hot --inline",
+    "dev:client": "webpack --watch --config client/webpack.config.js",
+    "dev:server": "nodemon --watch server",
     "dev": "run-p dev:client dev:server",
-    "dev:client": "webpack --watch",
-    "dev:server": "nodemon server",
-    "start": "run-s build server",
-    "build": "webpack",
-    "server": "node server",
-    "test": "jest --watchAll"
+    "knex": "knex --knexfile server/db/knexfile.js",
+    "webpack:server": "webpack-dev-server --hot --inline --content-base server/public --config client/webpack.config.js",
+    "test": "jest --watchAll",
+    "start": "node server"
   },
   "repository": {
     "type": "git",
