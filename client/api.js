@@ -1,9 +1,9 @@
 import request from 'superagent'
 
-const widgetUrl = 'http://localhost:3000/api/v1/widgets'
+const customersUrl = 'http://localhost:3000/api/v1/customers'
 
-export function getWidgets () {
+export function getCustomers () {
   return request
-    .get(widgetUrl)
+    .get(customersUrl)
     .then(response => response.body)
 }

@@ -3,9 +3,9 @@ const config = require('./knexfile')[environment]
 const connection = require('knex')(config)
 
 module.exports = {
-  getAllObjects
+    getAllCustomers
 }
 
-function getAllObjects (db = connection) {
-  return db('object').select()
+function getAllCustomers (db = connection) {
+  return db('Customers').select()
 }
