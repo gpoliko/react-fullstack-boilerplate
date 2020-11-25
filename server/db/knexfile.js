@@ -6,7 +6,11 @@ module.exports = {
     connection: {
       filename: path.join(__dirname, 'dev.sqlite3')
     },
-    useNullAsDefault: true
+    useNullAsDefault: true,
+    pool: {
+      afterCreate: (conn, cb) =>
+        conn.run('PRAGMA foreign_keys = ON', cb)
+    }
   },
 
   test: {
@@ -14,7 +18,29 @@ module.exports = {
     connection: {
       filename: ':memory:'
     },
-    useNullAsDefault: true
+    useNullAsDefault: true,
+    migrations: {
+      directory: path.join(__dirname, 'migrations')
+    },
+    seeds: {
+      directory: path.join(__dirname, 'test/seeds')
+    }
+  },
+
+  staging: {
+    client: 'postgresql',
+    connection: {
+      database: 'my_db',
+      user: 'username',
+      password: 'password'
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      tableName: 'knex_migrations'
+    }
   },
 
   production: {

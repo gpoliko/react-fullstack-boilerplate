@@ -1,10 +1,15 @@
 import React from 'react'
 
-export default function CUstomerListItem ({ customer, showDetails }) {
+function CustomerListItem (props) {
+  console.log('CustomerListItem Props:', props)
   return (
     <li className='customer-list-item'>
-      {`${customer.name} `}
-      <a href='#' onClick={() => showDetails(customer)}>details</a>
+      <p>
+        {`${props.customer.full_name} `}
+        <a href='#' onClick={() => props.showDetails(props.customer)}>details</a>
+      </p>
     </li>
   )
 }
+
+export default CustomerListItem

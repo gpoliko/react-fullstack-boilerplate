@@ -5,7 +5,7 @@ const db = require('../db/db')
 
 router.get('/', (req, res) => {
   db.getAllCustomers()
-    .then((customers) => {
+    .then(customers => {
       res.status(200).json(customers)
       return null
     })

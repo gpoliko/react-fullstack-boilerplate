@@ -4,8 +4,8 @@ exports.up = knex => {
     })
   }
   
-  exports.down = knex => {
-    return knex.schema.table('Orders', table => {
-      table.dropColumn('customer_id')
-    })
-  }
+exports.down = knex => {
+  return knex.schema.table('Orders', table => {
+    table.dropColumn('customer_id')
+  })
+}

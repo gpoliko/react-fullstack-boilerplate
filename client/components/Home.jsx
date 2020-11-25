@@ -6,43 +6,28 @@ import CustomerList from './CustomerList'
 import { getCustomers } from '../api'
 
 export default class Home extends React.Component {
-  state = {
-    error: null,
-    customers: [],
-    activeCustomer: null,
-    detailsVisible: false,
+  constructor (props) {
+    super(props)
+    this.state = {
+      error: null,
+      customers: [],
+      activeCustomer: null,
+      detailsVisible: false
+    }
   }
 
   componentDidMount () {
-    this.refreshList()
+    this.fetchCustomers()
   }
 
-  renderCustomers = customers => {
-    this.setState({
-      error: null,
-      customers: customers
+  fetchCustomers () {
+    return getCustomers()
+    .then(customers => {
+      this.setState({customers: customers})
     })
-  }
-
-  renderError = err => {
-    this.setState({
-      error: err,
-      customers: []
+    .catch(err => {
+      this.setState({error: err})
     })
-  }
-
-  refreshList = err => {
-    this.setState({
-      error: err
-    })
-
-    getCustomers()
-      .then(customers => {
-        this.renderCustomers(customers)
-      })
-      .catch((err) => {
-        this.renderError(err)
-      })
   }
 
   showDetails = customer => {
@@ -59,7 +44,6 @@ export default class Home extends React.Component {
   }
 
   render () {
-    console.log('Customers Table:', this.state.customers)
     return (
       <div>
         <ErrorMessage error={this.state.error} />
@@ -74,6 +58,7 @@ export default class Home extends React.Component {
           isVisible={this.state.detailsVisible}
           hideDetails={this.hideDetails}
           customer={this.state.activeCustomer} />}
+          <button>Add Customer</button>
       </div>
     )
   }

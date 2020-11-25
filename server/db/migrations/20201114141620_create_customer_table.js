@@ -6,6 +6,6 @@ exports.up = knex => {
     })
   }
   
-  exports.down = knex => {
-    return knex.schema.dropTable('Customers')
-  }
+exports.down = knex => {
+  return knex.schema.dropTable('Customers')
+}
