@@ -9,7 +9,7 @@
     "dev": "run-p dev:client dev:server",
     "knex": "knex --knexfile server/db/knexfile.js",
     "webpack:server": "webpack-dev-server --hot --inline --content-base server/public --config client/webpack.config.js",
-    "test": "jest --watchAll",
+    "test": "jest --watchAll --verbose",
     "start": "node server"
   },
   "repository": {
@@ -53,7 +53,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "sqlite3": "^4.2.0",
+    "superagent": "^5.2.2",
     "supertest": "^4.0.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
@@ -63,7 +63,7 @@
     "@babel/register": "^7.10.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "knex": "^0.21.1",
-    "superagent": "^5.2.2"
+    "knex": "^0.21.12",
+    "sqlite3": "^5.0.0"
   }
 }

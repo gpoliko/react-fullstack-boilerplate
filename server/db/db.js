@@ -1,9 +1,13 @@
-const environment = process.env.NODE_ENV || 'development'
-const config = require('./knexfile')[environment]
-const connection = require('knex')(config)
+const knex = require('knex')
+const config = require('./knexfile').development
+const connection = knex(config)
 
 module.exports = {
-    getAllCustomers
+    getAllCustomers,
+    getCustomerById,
+    addCustomer,
+    delCustomer,
+    editCustomer
 }
 
 function getAllCustomers (db = connection) {
