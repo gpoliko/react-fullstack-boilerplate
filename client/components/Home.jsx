@@ -44,7 +44,6 @@ export default class Home extends React.Component {
   }
 
   render () {
-    console.log('showDetails fn():', this.showDetails)
     return (
       <div>
         <ErrorMessage error={this.state.error} />
@@ -59,6 +58,7 @@ export default class Home extends React.Component {
           isVisible={this.state.detailsVisible}
           hideDetails={this.hideDetails}
           customer={this.state.activeCustomer} />}
+          <button>Add Customer</button>
       </div>
     )
   }
