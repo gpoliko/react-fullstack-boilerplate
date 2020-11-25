@@ -10,6 +10,10 @@ const {
     editCustomer
 } = require('./db')
 
+test('We all good mate?', () => {
+    expect(true).toBeTruthy()
+})
+
 beforeAll(() => {
     return testDB.migrate.latest()
 })
@@ -20,10 +24,6 @@ beforeEach(() => {
 
 beforeAll(() => {
     return testDB.destroy()
-})
-
-test('We all good mate?', () => {
-    expect(true).toBeTruthy()
 })
 
 test('getAllCustomers returns the correct number of customers', () => {
