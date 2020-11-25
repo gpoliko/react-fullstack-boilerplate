@@ -6,46 +6,31 @@ import CustomerList from './CustomerList'
 import { getCustomers } from '../api'
 
 export default class Home extends React.Component {
-  state = {
-    error: null,
-    customers: [],
-    activeCustomer: null,
-    detailsVisible: false,
+  constructor (props) {
+    super(props)
+    this.state = {
+      error: null,
+      customers: [],
+      activeCustomer: null,
+      detailsVisible: false
+    }
   }
 
   componentDidMount () {
-    this.refreshList()
+    this.fetchCustomers()
   }
 
-  renderCustomers = (customers) => {
-    this.setState({
-      error: null,
-      customers: customers
+  fetchCustomers () {
+    return getCustomers()
+    .then(customers => {
+      this.setState({customers: customers})
+    })
+    .catch(err => {
+      this.setState({error: err})
     })
   }
 
-  renderError = (err) => {
-    this.setState({
-      error: err,
-      customers: []
-    })
-  }
-
-  refreshList = (err) => {
-    this.setState({
-      error: err
-    })
-
-    getCustomers()
-      .then((customers) => {
-        this.renderCustomers(customers)
-      })
-      .catch((err) => {
-        this.renderError(err)
-      })
-  }
-
-  showDetails = (customer) => {
+  showDetails = customer => {
     this.setState({
       activeCustomer: customer,
       detailsVisible: true
