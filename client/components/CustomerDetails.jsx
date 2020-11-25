@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function CustomerDetails (props) {
-  console.log('Customer Details Props:', props)
+  // console.log('Customer Details Props:', props)
   const {customer, isVisible, hideDetails} = props
   const classes = 'customer-details ' + (isVisible ? 'visible' : 'hidden')
 

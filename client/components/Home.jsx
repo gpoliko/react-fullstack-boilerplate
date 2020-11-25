@@ -17,27 +17,27 @@ export default class Home extends React.Component {
     this.refreshList()
   }
 
-  renderCustomers = (customers) => {
+  renderCustomers = customers => {
     this.setState({
       error: null,
       customers: customers
     })
   }
 
-  renderError = (err) => {
+  renderError = err => {
     this.setState({
       error: err,
       customers: []
     })
   }
 
-  refreshList = (err) => {
+  refreshList = err => {
     this.setState({
       error: err
     })
 
     getCustomers()
-      .then((customers) => {
+      .then(customers => {
         this.renderCustomers(customers)
       })
       .catch((err) => {
@@ -45,7 +45,7 @@ export default class Home extends React.Component {
       })
   }
 
-  showDetails = (customer) => {
+  showDetails = customer => {
     this.setState({
       activeCustomer: customer,
       detailsVisible: true
@@ -59,7 +59,7 @@ export default class Home extends React.Component {
   }
 
   render () {
-    console.log('showDetails fn():', this.showDetails)
+    console.log('Customers Table:', this.state.customers)
     return (
       <div>
         <ErrorMessage error={this.state.error} />
